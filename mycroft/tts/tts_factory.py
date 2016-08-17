@@ -24,6 +24,7 @@ from mycroft.tts import fa_tts
 from mycroft.tts import google_tts
 from mycroft.tts import mary_tts
 from mycroft.tts import mimic_tts
+from mycroft.tts import null_tts
 from mycroft.tts import spdsay_tts
 
 __author__ = 'jdorleans'
@@ -62,6 +63,9 @@ def create():
     elif name == espeak_tts.NAME:
         tts = espeak_tts.ESpeak(lang, voice)
         espeak_tts.ESpeakValidator().validate(tts)
+    elif name == null_tts.NAME:
+        tts = null_tts.Null(lang, voice)
+        null_tts.NullValidator().validate(tts)
     else:
         tts = spdsay_tts.SpdSay(lang, voice)
         spdsay_tts.SpdSayValidator().validate(tts)
